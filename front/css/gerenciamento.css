@@ -1,0 +1,65 @@
+body {
+    background-color: #000;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+th {
+    background-color: #eee;
+}
+
+.produtos {
+    margin-top: 20px;
+    color: #ccc
+}
+
+.produtos th {
+    width: 25%;
+}
+
+.produtos td {
+    text-align: center;
+}
+
+.produtos td button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form input {
+    margin-bottom: 10px;
+}
+
+.form button {
+    margin-top: 10px;
+}
+
+.d-d-i {
+    color: #ccc;
+}
+
+.text {
+    color: #ccc;
+    text-align: center;
+}

@@ -21,6 +21,7 @@ public class RoupaModel {
     private String descricao;
     private String tipo;
     @Lob
+    
     @Column ( name = "img", columnDefinition = "LONGBLOB")
     private byte[] img;
     private Double preco;

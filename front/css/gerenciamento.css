@@ -1,65 +1,43 @@
-body {
-    background-color: #000;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
-th {
-    background-color: #eee;
-}
-
-.produtos {
-    margin-top: 20px;
-    color: #ccc
-}
-
-.produtos th {
-    width: 25%;
-}
-
-.produtos td {
+body{
+    font-family: 'Roboto', sans-serif;
     text-align: center;
+    background-color: #333;
 }
 
-.produtos td button {
-    background-color: #000;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+form, h1{
+    width: 50%;
+    margin: auto;
+    
 }
 
-.form {
-    color: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.form input {
-    margin-bottom: 10px;
-}
-
-.form button {
-    margin-top: 10px;
-}
-
-.d-d-i {
-    color: #ccc;
-}
-
-.text {
-    color: #ccc;
+h1{
     text-align: center;
+    padding: 20px 0;
+    color: aliceblue;
+}
+
+input{
+    margin: 20px 0;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
+img{
+    width: 100px;
+}
+
+td{
+    vertical-align: middle;
+}
+
+.hidden{
+ visibility: hidden;   
 }

@@ -15,32 +15,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import br.com.clothes.model.RoupaModel;
-import br.com.clothes.repository.RoupaRepositorio;
+import br.com.clothes.dao.DAO;
+import br.com.clothes.model.roupamodel;
 
 @RestController
 @CrossOrigin("*")
 public class roupaController {
 
     @Autowired
-    RoupaRepositorio roupaRepositorio;
+    DAO daorepositorio;
 
     @GetMapping
-    public Iterable<RoupaModel> listar() {
-        return roupaRepositorio.findAll();
+    public Iterable<roupamodel> listar() {
+        return daorepositorio.findAll();
     }
 
     public byte[] imagem (Integer id){
-        Optional<RoupaModel> model = roupaRepositorio.findById(id);
+        Optional<roupamodel> model = daorepositorio.findById(id);
         return model.orElse(null).getImg();
     }
 
     @PostMapping
-    public ResponseEntity<RoupaModel> cadastrar(@RequestParam("descricao") String descricao,
+    public ResponseEntity<roupamodel> cadastrar(@RequestParam("descricao") String descricao,
             @RequestParam("img") MultipartFile img, @RequestParam("preco") Double preco, @RequestParam("nome") String nome, @RequestParam("tipo") String tipo) {
 
         try {
-            RoupaModel roupaModel = new RoupaModel();
+            roupamodel roupaModel = new roupamodel();
             roupaModel.setDescricao(descricao);
             roupaModel.setNome(nome);
             roupaModel.setPreco(preco);
@@ -48,19 +48,19 @@ public class roupaController {
             byte[] imgRoupa = img.getBytes();
             roupaModel.setImg(imgRoupa);
 
-            return new ResponseEntity<RoupaModel>(roupaRepositorio.save(roupaModel), HttpStatus.CREATED);
+            return new ResponseEntity<roupamodel>(daorepositorio.save(roupaModel), HttpStatus.CREATED);
         } catch (Exception e) {
             return null;
         }
     }
 
     @PutMapping
-    public ResponseEntity<RoupaModel> alterar(@RequestParam("img") MultipartFile img, @RequestParam("nome") String nome,
+    public ResponseEntity<roupamodel> alterar(@RequestParam("img") MultipartFile img, @RequestParam("nome") String nome,
             @RequestParam("descricao") String descricao, @RequestParam("preco") Double preco,
             @RequestParam("tipo") String tipo, @RequestParam("id") Integer id) {
         try {
             byte[] imgBytes;
-            RoupaModel model = new RoupaModel();
+            roupamodel model = new roupamodel();
             if (img.isEmpty()) {
                 imgBytes = imagem(id);
             } else {
@@ -72,7 +72,7 @@ public class roupaController {
             model.setPreco(preco);
             model.setTipo(tipo);
             model.setId(id);
-            return new ResponseEntity<RoupaModel>(roupaRepositorio.save(model), HttpStatus.CREATED);
+            return new ResponseEntity<roupamodel>(daorepositorio.save(model), HttpStatus.CREATED);
 
         } catch (Exception e) {
             return null;
@@ -81,7 +81,7 @@ public class roupaController {
 
     @DeleteMapping("/{id}")
     public void excluir(@PathVariable Integer id){
-        roupaRepositorio.deleteById(id);
+        daorepositorio.deleteById(id);
     }
 
 }

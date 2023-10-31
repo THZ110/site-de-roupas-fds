@@ -2,8 +2,8 @@ package br.com.clothes.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import br.com.clothes.model.RoupaModel;
+import br.com.clothes.model.roupamodel;
 
-public interface RoupaRepositorio extends CrudRepository <RoupaModel, Integer>{
+public interface RoupaRepositorio extends CrudRepository <roupamodel, Integer>{
     
 }
